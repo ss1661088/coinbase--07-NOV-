@@ -1,21 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Help Center</title>
+<!-- Include Bootstrap Icons & CSS (for full page) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f7fa;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+      font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #135;
+    text-align: left;
+    }
+.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
     }
 
-    .header {
+   .navbar-brand {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .navbar-brand span {
+      color: #0052ff;
+    }
+    .nav-link {
+      color: #000 !important;
+      font-weight: 500;
+      margin-right: 20px;
+    }
+    .nav-icons i {
+      font-size: 1.2rem;
+      color: #000;
+      margin-right: 10px;
+      padding: 8px;
+      border-radius: 50%;
+      background: #f1f2f4;
+      cursor: pointer;
+    }
+   .btn-signin {
+    background: #0052ff;
+    color: #fff;
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-weight: 600;
+    border: none;
+  }
+  /* Hide nav icons on mobile */
+  @media (max-width: 991.98px) {
+    .nav-icon {
+      display: none !important;
+    }
+  }
+    .hero {
+      text-align: center;
+     padding: 30px 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 500;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+      .search-bar {
+      max-width: 600px;
+      margin: 40px auto 20px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 999px;
+      padding: 10px 20px;
+    }
+
+    .search-bar i {
+      font-size: 1.2rem;
+      margin-right: 10px;
+      color: #333;
+    }
+
+    .search-bar input {
+      border: none;
+      flex: 1;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    /* Cards */
+	.help-card {
+      background: #f6f9fc;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #e5e5e5;
+    }
+    .help-card i {
+      color: #0052ff;
+      font-size: 1rem;
+      margin-right: 8px;
+    }
+    .help-card-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .help-card p {
+      margin: 10px 0;
+      color: #333;
+      font-size: 15px;
+text-align:left;
+    }
+    .help-card a {
+      color: #0052ff;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+    
+    }
+    .help-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Nav */
+    @media (max-width: 768px) {
+      .navbar-collapse {
+        display: none !important;
+      }
+    }
+.topic-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+  height: 100%;
+}
+.topic-box:hover {
+  background-color: #f5f8ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+.topic-title {
+  font-size: 14px;
+  color: #000;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.product-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  background-color: #f5f8ff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.product-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+.scroll-section::-webkit-scrollbar {
+  display: none; /* Hide scroll on WebKit */
+}
+.scroll-section {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+   .header {
       background-color: #0066ff;
       color: white;
       padding: 30px 10px;
       font-size: 28px;
       font-weight: bold;
+	  text-align: center;
     }
 
     .support-box {
@@ -25,12 +198,14 @@
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+	  text-align: center;
     }
 
     .support-box h2 {
       color: #0066ff;
       margin-bottom: 15px;
       font-size: 22px;
+	  
     }
 
     .support-box p {
@@ -84,24 +259,23 @@
   </style>
 </head>
 <body>
-
-  <div class="header">Coinbase Help Center</div>
+ <div class="header"> Help Center</div>
 
   <div class="support-box">
     <h2>24/7 Customer Support</h2>
     <p>
-      Need help with your Coinbase account or crypto transactions? 
+      Need help with your Help Center account or crypto transactions? 
       Our support team is available around the clock to guide you 
       with security, payments, and account issues.
     </p>
     <a href="tel:+18884002397" class="call-btn">Call Us: +1-888-400-2397</a>
   </div>
 
-  <h2>How We Can Help</h2>
+  <h2 style="text-align: center;">How We Can Help</h2>
   <div class="help-section">
     <div class="help-card">
       <div class="help-title">Account setup and verification</div>
-      Get help setting up or verifying your Coinbase account.
+      Get help setting up or verifying your Help Center account.
     </div>
     <div class="help-card">
       <div class="help-title">Buying, selling, or transferring crypto</div>
@@ -113,5 +287,144 @@
     </div>
   </div>
 
+<!-- Help by Topic Section -->
+<div class="container ">
+  <h2 class="mb-4 ">Help By Topic</h2>
+  <div class="row g-3 ">
+    <div class="col-6 col-md-3 text-center">
+      <div class="help-topic-card  rounded shadow-sm bg-white p-5">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/1hP1H2UV0yir6J8KQie4qF/1909b0d2817f575990232902bba962a7/getStarted-0.svg" width="90" />
+        <div class="mt-2 fw-medium mb-4">Getting started</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 text-center">
+      <div class="help-topic-card  rounded shadow-sm bg-white p-5">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/4XTrXdLkA5LwsYE99gn4T9/048ec8e83c08ceb6a46fe34e912db620/addPayment-0.svg" width="90" />
+        <div class="mt-2 fw-medium">Add a payment method</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 text-center">
+      <div class="help-topic-card rounded shadow-sm bg-white p-5">
+        <img src="https:////images.ctfassets.net/7ca8qfn907uv/65vo9ksVHL3zDmYHBZzXyB/ac1cc12e2cb6324f520835d8f30a63b3/contactInfo-1.svg" width="90" />
+        <div class="mt-2 fw-medium mb-4">Managing my account</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 text-center">
+      <div class="help-topic-card rounded shadow-sm bg-white p-5">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/7IvOodimIAeFQhjbYmnuFT/8f8586fcd582b6eeb3df91df67012231/safe.svg" width="90" />
+        <div class="mt-2 fw-medium">Fraud and suspicious activity</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 text-center">
+      <div class="help-topic-card rounded shadow-sm bg-white p-5">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/7LCCQaN1MuGaMVImrdmVrI/40527bdbe4d785a32fc5f180a5cd9964/newUserChecklistBuyCrypto-1.svg" width="90" />
+        <div class="mt-2 fw-medium">Trading and funding</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 text-center">
+      <div class="help-topic-card  rounded shadow-sm bg-white p-5">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/7IvOodimIAeFQhjbYmnuFT/8f8586fcd582b6eeb3df91df67012231/safe.svg" width="90" />
+        <div class="mt-2 fw-medium">Privacy and security</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 text-center">
+      <div class="help-topic-card  rounded shadow-sm bg-white p-5">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/6rylkzHnFcQPEHJAY73A0D/38bc4c8f4dff60c00d944d1c8888d554/taxSeason.svg" width="90" />
+        <div class="mt-2 fw-medium ">Taxes</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Help by Product Section -->
+<div class="container my-5">
+  <h4 class="mb-4" style="font-weight: 500;">Help by product</h4>
+
+  <div class="position-relative">
+    <div class="d-flex overflow-auto gap-3 pb-3 scroll-section" style="scroll-snap-type: x mandatory;">
+
+      <!--  Help Center -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/38U9oOnlqtZaPiAwfvF38z/c714d6c16afb019dac4eeac6198a96f6/wallet.svg" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Help Center</div>
+      </div>
+
+      <!-- Help Center Advanced -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/3G0jDVwrG03jrpqYoSoFWN/6db614e64ba5ea3b31e540af4732b86f/advanced-icon.svg" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Help Center Advanced</div>
+      </div>
+
+      <!-- Futures -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/7j4KIgFI3rzCmQWSJbuqaL/c0ba763a973852cd303763fcd3817221/futures.png" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Futures</div>
+      </div>
+
+      <!-- Help Center Earn -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/32iM2Ev3t5pxYaon8hBoGc/3e8dcd00526eb9b45ddf0780b5f38bc9/earnNavigation.svg" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Help Center Earn</div>
+      </div>
+		<!-- Help Center Earn -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/3aRsaYaTSt944jHoxqMIwL/a9319b5956f812ddde0bab6ca28fd13a/cardNavigation.svg" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Help Center Card</div>
+      </div>	
+	<!-- Help Center Earn -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/6CPC8dav0XsrZnpTgzwCQG/e49172f24d9f1b75020b56f669984c32/usdc.png" width="50" class="mb-3 mt-2" />
+        <div class="product-title">USD Coin (USDC)</div>
+      </div>
+	<!-- Help Center Earn -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/54WICZaStrdVUFAFG5lVT4/8abeac8b725bdfec6cfed3de1aad1dae/dapps.png" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Dapps</div>
+      </div>
+	<!-- Help Center Earn -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="http://images.ctfassets.net/7ca8qfn907uv/5E9vaQFHe0HK31y881Z58t/55cc2a40a1e20af6ba35d43907cc120f/commerceNavigation-1.svg" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Help Center Commerce</div>
+      </div>
+	<!-- Help Center Earn -->
+      <div class="product-card flex-shrink-0 text-center p-5 rounded" style="scroll-snap-align: start;">
+        <img src="https://images.ctfassets.net/7ca8qfn907uv/60ePUn3WKTKWyS0q9zwHcR/1e93abf925a9883c2ffaaaa95db8df18/cloudNavigation.svg" width="50" class="mb-3 mt-2" />
+        <div class="product-title">Developer Platform</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Suspicious Activity / Contact Support Section -->
+<div class="container my-5">
+  <div class="row g-4 justify-content-center">
+
+    <!-- Card 1: Suspicious Activity -->
+    <div class="col-md-6">
+      <div class="d-flex justify-content-between align-items-center p-4 rounded-3" style="background-color: #f5f8ff;">
+        <div>
+          <h6 class="fw-semibold mb-2">Experiencing suspicious activity?</h6>
+          
+        </div>
+        <img src="https://static-assets.coinbase.com/ui-infra/illustration/v1/spotSquare/svg/light/walletSecurity-3.svg" alt="Lock Icon" width="60">
+      </div>
+    </div>
+
+    <!-- Card 2: Contact Us -->
+    <div class="col-md-6">
+      <div class="d-flex justify-content-between align-items-center p-4 border rounded-3">
+        <div>
+          <h6 class="fw-semibold mb-2">Can't find what you're looking for?</h6>
+          <a href="#" class="text-primary fw-semibold text-decoration-none"onclick="openChat()">Contact us for chat<i class="bi bi-arrow-right"></i></a>
+        </div>
+        <img src="https://static-assets.coinbase.com/ui-infra/illustration/v1/spotSquare/svg/light/defiDecentralizedTradingExchange-3.svg" alt="Flow Icon" width="60">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
